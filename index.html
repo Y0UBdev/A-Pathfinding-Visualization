@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding Visualization</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>A* Pathfinding Visualization</h1>
+
+    <div id="controls">
+        <fieldset>
+            <legend>Mode de placement</legend>
+
+            <label>
+                <input type="radio" name="tool" value="start">
+                Start
+            </label>
+
+            <label>
+                <input type="radio" name="tool" value="end">
+                End
+            </label>
+
+            <label>
+                <input type="radio" name="tool" value="block" checked>
+                Block
+            </label>
+
+            <label>
+                <input type="radio" name="tool" value="erase">
+                Erase
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Taille des blocs</legend>
+
+            <label>
+                Largeur:
+                <input
+                    type="range"
+                    id="blockWidth"
+                    min="1"
+                    max="10"
+                    step="1"
+                    value="1"
+                />
+                <span id="blockWidthValue">1</span>
+            </label>
+
+            <label>
+                Hauteur:
+                <input
+                    type="range"
+                    id="blockHeight"
+                    min="1"
+                    max="10"
+                    step="1"
+                    value="1"
+                />
+                <span id="blockHeightValue">1</span>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Taille des cellules</legend>
+
+            <input
+                type="range"
+                id="cellSize"
+                min="10"
+                max="30"
+                step="2"
+                value="20"
+            />
+            <span id="cellSizeValue">20 px</span>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Démarrer l'algorithme</legend>
+            <button id="startButton">Démarrer</button>
+        </fieldset>
+    </div>
+
+    <canvas id="canvas" style="border:1px solid black;"></canvas>
+
+    <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>
