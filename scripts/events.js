@@ -4,6 +4,20 @@ Evenements réalisés par ChatGPT-4
 
 import { Coordinate } from "./models.js";
 
+export function applyEvent(func) {
+    const startBtn = document.getElementById("start-btn");
+    console.log("bonjour")
+    startBtn.addEventListener("click", () => {
+        const balise = document.getElementById("info");
+        try {
+            func();
+            balise.innerHTML = ""
+        } catch (e) {
+            balise.innerHTML = e
+        }
+    });
+}
+
 export function bindGridEvents(grid) {
     const canvas = document.getElementById("canvas");
 
@@ -90,7 +104,7 @@ export function bindGridEvents(grid) {
                 const coord = new Coordinate(bx, by);
 
                 if (currentTool === "block") {
-                    if (!grid.isIn(grid.blocks, bx, by)) {
+                    if (!grid.isIn(grid.blocks, coord)) {
                         grid.blocks.push(coord);
                     }
                 }

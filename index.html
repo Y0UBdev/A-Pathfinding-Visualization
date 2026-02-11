@@ -80,11 +80,14 @@
         
         <fieldset>
             <legend>Démarrer l'algorithme</legend>
-            <button id="startButton">Démarrer</button>
+            <button id="start-btn" style="cursor: pointer;">Démarrer</button>
         </fieldset>
     </div>
 
-    <canvas id="canvas" style="border:1px solid black;"></canvas>
+    <div style="display: flex; gap:5%; align-items: flex-start;">
+        <canvas id="canvas" style="border:1px solid black;"></canvas>
+        <p id="info">Veuillez placer le départ et la fin.</p>
+    </div>
 
     <script type="module" src="scripts/main.js"></script>
 </body>

@@ -27,6 +27,14 @@ export class Coordinate {
     subtract(coord) {
         return new Coordinate(Math.abs(this.x - coord.x), Math.abs(this.y - coord.y));
     }
+
+    add(coord) {
+        return new Coordinate(this.x + coord.x, this.y + coord.y);
+    }
+
+    equals(x, y) {
+        return this.x === x && this.y === y
+    }
 }
 
 export class Grid {
@@ -41,6 +49,13 @@ export class Grid {
         
         this.visited = [];
         this.closed = [];
+
+        this.NEIGHBOR = [
+            // cardinal
+            new Coordinate(0, -1), new Coordinate(1, 0), new Coordinate(0, 1), new Coordinate(-1, 0), 
+            // diagonal
+            new Coordinate(-1, -1), new Coordinate(1, -1), new Coordinate(1, 1), new Coordinate(-1, 1) 
+        ]
     }
 
     reset() {
@@ -58,7 +73,7 @@ export class Grid {
 
                 if (this.start && x === this.start.x && y === this.start.y) node.color = "green";
                     else if (this.end && x === this.end.x && y === this.end.y) node.color = "red";
-                    else if (this.isIn(this.blocks, x, y)) node.color = "black";
+                    else if (this.isIn(this.blocks, coord)) node.color = "black";
 
                 this.visited.push(node);
             }
@@ -72,11 +87,17 @@ export class Grid {
         renderGrid(this, canvas, ctx);
     }
 
-    isIn(list, x, y) {
-        return list.some(n => n.x === x && n.y === y);
+    isIn(list, coord) {
+        return list.some(node => coord.equals(node.x, node.y));
     }
 
-    smallest() {
-        return         
+    smallestNeighbor(node) {
+        const coord = new Coordinate(node.x, node.y)
+        let neighbor = this.neighbor(coord)
+    }
+
+    neighbor(coord) {
+        let neighbor = this.NEIGHBOR.map(n => coord.add(n));
+        return this.visited.filter(node => neighbor.some(c => c.equals(node.x, node.y)));
     }
 }

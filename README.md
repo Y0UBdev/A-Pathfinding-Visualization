@@ -91,6 +91,8 @@ L'application suit une architecture modulaire :
 - **main.js** : Initialise l'application et coordonne les modules
 
 ## Contribution de l'ia dans ce projet
-- **events.js** : La majorité des événements ont été réalisé à l'aide de *ChatGpt*
-- **style.css** : *OpenCode* c'est occupé de réalisé la totalité du style
-- **index.html** : *OpenCode* c'est occupé des `<fieldset/>`
+
+- `events.js` : La majorité des événements ont été réalisé à l'aide de *ChatGpt*
+- `style.css` : *OpenCode* c'est occupé de réalisé la totalité du style
+- `index.html` : *OpenCode* c'est occupé des `<fieldset/>`
+- `README.md` : *OpenCode* a amélioré et a corriger les fautes d'orthographes du readme
