@@ -8,35 +8,55 @@ export class Strategy {
 
     constructor(grid) {
         this.achieved = false
+        this.grid = grid;
 
         this.balise = document.getElementById("info");
 
-        this.grid = grid;
+        this.running = false;
+        this.frameId = null;
     }
 
     apply() {
-        this.achieved = false;
+
+        if (this.running) return;
+
+        this.running = true;
         this.grid.reset();
         this.grid.init();
 
-        if (this.grid.start == null || this.grid.end == null) {
-            this.balise.innerHTML = "Les noeuds de départ ou/et de fin n'ont pas été placé.";
+        if (this.grid.start === null || this.grid.end === null) {
+            this.balise.innerHTML = "Placez un départ et une arrivée.";
+            this.running = false;
+            return;
         }
 
         const loop = () => {
 
+            if (!this.running) return;
+
             this.__step();
             this.grid.render();
 
-            requestAnimationFrame(loop);
+            this.frameId = requestAnimationFrame(loop);
         };
 
         loop();
     }
 
+    stop() {
+        this.running = false;
+
+        if (this.frameId) {
+            cancelAnimationFrame(this.frameId);
+            this.frameId = null;
+        }
+
+        this.balise.innerHTML = "Algorithme arrêté.";
+    }
+
     __step() {
         if (this.grid.visited.length === 0) {
-            this.achieved = true;
+            this.stop();
             this.balise.innerHTML = "Aucun chemin n'a été trouvée";
             return;
         }
@@ -44,10 +64,8 @@ export class Strategy {
         let node = this.__smallest(this.grid.visited);
 
         if (node.x === this.grid.end.x && node.y === this.grid.end.y) {
-
-            this.achieved = true;
             this.__reconstructPath(node);
-
+            this.stop();
             this.balise.innerHTML = "Chemin trouvé !";
             return;
         }
@@ -57,6 +75,7 @@ export class Strategy {
         if (node.color !== "green" && node.color !== "red") {
             node.color = "#a0d8ff";
         }
+
         this.grid.removeVisited(node);
         this.grid.closed.push(node);    
     }
@@ -100,7 +119,6 @@ export class Strategy {
             if (current.color !== "green" && current.color !== "red") {
                 current.color = "yellow";
             }
-            console.log(current);
             
             current = current.parent;
         }

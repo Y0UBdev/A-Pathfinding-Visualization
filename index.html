@@ -9,85 +9,80 @@
 <body>
     <h1>A* Pathfinding Visualization</h1>
 
-    <div id="controls">
-        <fieldset>
-            <legend>Mode de placement</legend>
+    <main class="layout">
 
-            <label>
-                <input type="radio" name="tool" value="start">
-                Start
-            </label>
+        <aside class="panel">
+            <h2>Paramètres</h2>
 
-            <label>
-                <input type="radio" name="tool" value="end">
-                End
-            </label>
+            <div id="info" class="info-box">
+                Placez un départ et une arrivée.
+            </div>
 
-            <label>
-                <input type="radio" name="tool" value="block" checked>
-                Block
-            </label>
+            <section class="group">
+                <h3>Outil</h3>
 
-            <label>
-                <input type="radio" name="tool" value="erase">
-                Erase
-            </label>
-        </fieldset>
+                <label class="option">
+                    <input type="radio" name="tool" value="start">
+                    <span>Départ</span>
+                </label>
 
-        <fieldset>
-            <legend>Taille des blocs</legend>
+                <label class="option">
+                    <input type="radio" name="tool" value="end">
+                    <span>Arrivée</span>
+                </label>
 
-            <label>
-                Largeur:
-                <input
-                    type="range"
-                    id="blockWidth"
-                    min="1"
-                    max="10"
-                    step="1"
-                    value="1"
-                />
-                <span id="blockWidthValue">1</span>
-            </label>
+                <label class="option">
+                    <input type="radio" name="tool" value="block" checked>
+                    <span>Mur</span>
+                </label>
 
-            <label>
-                Hauteur:
-                <input
-                    type="range"
-                    id="blockHeight"
-                    min="1"
-                    max="10"
-                    step="1"
-                    value="1"
-                />
-                <span id="blockHeightValue">1</span>
-            </label>
-        </fieldset>
+                <label class="option">
+                    <input type="radio" name="tool" value="erase">
+                    <span>Effacer</span>
+                </label>
+            </section>
 
-        <fieldset>
-            <legend>Taille des cellules</legend>
+            <section class="group">
+                <h3>Taille des blocs</h3>
 
-            <input
-                type="range"
-                id="cellSize"
-                min="10"
-                max="30"
-                step="2"
-                value="20"
-            />
-            <span id="cellSizeValue">20 px</span>
-        </fieldset>
-        
-        <fieldset>
-            <legend>Démarrer l'algorithme</legend>
-            <button id="start-btn" style="cursor: pointer;">Démarrer</button>
-        </fieldset>
-    </div>
+                <div class="range-control">
+                    <label>Largeur</label>
+                    <input type="range" id="blockWidth" min="1" max="10" value="1">
+                    <span id="blockWidthValue">1</span>
+                </div>
 
-    <div style="display: flex; gap:5%; align-items: flex-start;">
-        <canvas id="canvas" style="border:1px solid black;"></canvas>
-        <p id="info">Veuillez placer le départ et la fin.</p>
-    </div>
+                <div class="range-control">
+                    <label>Hauteur</label>
+                    <input type="range" id="blockHeight" min="1" max="10" value="1">
+                    <span id="blockHeightValue">1</span>
+                </div>
+            </section>
+
+            <section class="group">
+                <h3>Taille des cellules</h3>
+
+                <div class="range-control">
+                    <input type="range" id="cellSize" min="10" max="30" step="2" value="20">
+                    <span id="cellSizeValue">20 px</span>
+                </div>
+            </section>
+
+            <div class="btn">
+                <button id="start-btn" class="primary-btn">
+                    Lancer l’algorithme
+                </button>
+                
+                <button id="stop-btn" class="secondary-btn">
+                    Stop
+                </button>
+            </div>
+        </aside>
+
+        <section class="canvas-area">
+            <canvas id="canvas"></canvas>
+        </section>
+
+    </main>
 
     <script type="module" src="scripts/main.js"></script>
 </body>

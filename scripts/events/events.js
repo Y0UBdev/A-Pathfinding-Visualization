@@ -10,11 +10,19 @@ export function applyEvent(func) {
         const balise = document.getElementById("info");
         try {
             func();
-            balise.innerHTML = "load...";
+            balise.innerHTML = "Chargement...";
         } catch (e) {
             balise.innerHTML = e;
             console.error(e);
         }
+    });
+}
+
+export function stopEvent(strategy) {
+    const stopBtn = document.getElementById("stop-btn");
+
+    stopBtn.addEventListener("click", () => {
+        strategy.stop();
     });
 }
 
