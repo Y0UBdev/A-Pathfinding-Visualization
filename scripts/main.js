@@ -11,4 +11,3 @@ grid.render();
 bindGridEvents(grid);
 applyEvent(() => strategy.apply());
 stopEvent(strategy);
-resetEvent(strategy);

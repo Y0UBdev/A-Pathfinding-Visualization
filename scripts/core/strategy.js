@@ -53,17 +53,6 @@ export class Strategy {
         this.balise.innerHTML = "Algorithme arrêté.";
     }
 
-    reset() {
-        this.stop();
-
-        this.grid.init();
-        this.grid.render();
-
-        this.running = false;
-
-        this.balise.innerHTML = "Grille réinitialisée.";
-    }
-
     __step() {
         if (this.grid.visited.length === 0) {
             this.stop();
