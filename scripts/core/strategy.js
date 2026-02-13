@@ -7,7 +7,6 @@ export class Strategy {
     D = 10; D2 = 14;
 
     constructor(grid) {
-        this.achieved = false
         this.grid = grid;
 
         this.balise = document.getElementById("info");
@@ -52,6 +51,17 @@ export class Strategy {
         }
 
         this.balise.innerHTML = "Algorithme arrêté.";
+    }
+
+    reset() {
+        this.stop();
+
+        this.grid.init();
+        this.grid.render();
+
+        this.running = false;
+
+        this.balise.innerHTML = "Grille réinitialisée.";
     }
 
     __step() {

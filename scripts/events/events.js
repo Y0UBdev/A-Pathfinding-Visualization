@@ -26,6 +26,14 @@ export function stopEvent(strategy) {
     });
 }
 
+export function resetEvent(strategy) {
+    const resetBtn = document.getElementById("reset-btn");
+
+    resetBtn.addEventListener("click", () => {
+        strategy.reset();
+    });
+}
+
 export function bindGridEvents(grid) {
     const canvas = document.getElementById("canvas");
 
