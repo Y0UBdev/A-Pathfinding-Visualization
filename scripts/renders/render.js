@@ -8,7 +8,7 @@ export function renderGrid(grid, canvas, ctx) {
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    for (let node of grid.visited) {
+    for (let node of grid.nodes) {
         let x = node.x;
         let y = node.y;
         let color = node.color;
@@ -30,4 +30,3 @@ export function renderGrid(grid, canvas, ctx) {
         );
     }
 }
-

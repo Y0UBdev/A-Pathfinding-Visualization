@@ -1,6 +1,6 @@
-import { Coordinate, Grid } from "./models.js";
-import { applyEvent, bindGridEvents } from "./events.js";
-import { Strategy } from "./strategy.js";
+import { Grid } from "./models/grid.js";
+import { applyEvent, bindGridEvents } from "./events/events.js";
+import { Strategy } from "./core/strategy.js";
 
 const grid = new Grid(40, 30, 20);
 const strategy = new Strategy(grid);

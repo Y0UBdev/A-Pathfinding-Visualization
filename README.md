@@ -68,7 +68,7 @@ Puis accédez à `http://localhost:8000` dans votre navigateur.
 
 ```
 astar-visualization/
-├── index.html              # Page principale
+├── index.html             # Page principale
 ├── styles/
 │   └── style.css          # Feuille de style
 ├── scripts/
@@ -90,9 +90,13 @@ L'application suit une architecture modulaire :
 - **render.js** : Gère le rendu graphique sur le canvas
 - **main.js** : Initialise l'application et coordonne les modules
 
+## Sources : 
+- https://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
+- https://fr.wikipedia.org/wiki/Algorithme_A*
+
 ## Contribution de l'ia dans ce projet
 
 - `events.js` : La majorité des événements ont été réalisé à l'aide de *ChatGpt*
 - `style.css` : *OpenCode* c'est occupé de réalisé la totalité du style
 - `index.html` : *OpenCode* c'est occupé des `<fieldset/>`
-- `README.md` : *OpenCode* a amélioré et a corriger les fautes d'orthographes du readme
+- `README.md` : *OpenCode* a corriger les fautes d'orthographes, a amélioré les premiers points de façon plus professionnel et a rédigé la patie *Installation*.

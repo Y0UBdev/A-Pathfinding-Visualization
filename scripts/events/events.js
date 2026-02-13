@@ -2,18 +2,18 @@
 Evenements réalisés par ChatGPT-4
 ========================= */
 
-import { Coordinate } from "./models.js";
+import { Coordinate } from "../models/coordinate.js";
 
 export function applyEvent(func) {
     const startBtn = document.getElementById("start-btn");
-    console.log("bonjour")
     startBtn.addEventListener("click", () => {
         const balise = document.getElementById("info");
         try {
             func();
-            balise.innerHTML = ""
+            balise.innerHTML = "load...";
         } catch (e) {
-            balise.innerHTML = e
+            balise.innerHTML = e;
+            console.error(e);
         }
     });
 }
