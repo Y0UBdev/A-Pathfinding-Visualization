@@ -77,7 +77,7 @@ export class Strategy {
             
             this.__cost(neighbor, node);
 
-            if (!this.grid.visited.includes(neighbor)) {
+            if (!this.grid.visited.includes(neighbor) && neighbor.color !== "black") {
                 if (neighbor.color !== "green" && neighbor.color !== "red") neighbor.color = "#3399ff";
                 this.grid.visited.push(neighbor);
             }
