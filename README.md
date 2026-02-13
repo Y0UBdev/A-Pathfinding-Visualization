@@ -64,27 +64,11 @@ Puis accédez à `http://localhost:8000` dans votre navigateur.
 
 3. **Lancer l'algorithme** : Cliquez sur le bouton "Démarrer" pour lancer la visualisation A*
 
-## Structure du projet
-
-```
-astar-visualization/
-├── index.html             # Page principale
-├── styles/
-│   └── style.css          # Feuille de style
-├── scripts/
-│   ├── main.js            # Point d'entrée principal
-│   ├── models.js          # Modèles de données (Node, Grid, Coordinate)
-│   ├── strategy.js        # Implémentation de l'algorithme A*
-│   ├── events.js          # Gestion des événements utilisateur
-│   └── render.js          # Fonctions de rendu graphique
-└── README.md
-```
-
 ## Architecture
 
 L'application suit une architecture modulaire :
 
-- **models.js** : Définit les classes de base (Node, Coordinate, Grid)
+- **models** : Définit les classes de base (Node, Coordinate, Grid)
 - **strategy.js** : Implémente l'algorithme A* avec le pattern Strategy
 - **events.js** : Gère les interactions utilisateur avec la grille
 - **render.js** : Gère le rendu graphique sur le canvas
