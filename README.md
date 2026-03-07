@@ -76,7 +76,7 @@ L'application suit une architecture modulaire :
 
 ## Sources : 
 - https://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
-- https://fr.wikipedia.org/wiki/Algorithme_A*
+- [https://fr.wikipedia.org/wiki/Algorithme_A*](https://fr.wikipedia.org/wiki/Algorithme_A*)
 
 ## Contribution de l'ia dans ce projet
 
